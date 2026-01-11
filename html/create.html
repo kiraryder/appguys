@@ -1,0 +1,290 @@
+<!--
+  Kira Hazelwood
+  2026
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col">
+          <form method="get" id="create-form">
+            
+            <div class="card shadow-sm mb-3">
+              <div class="card-header text-center">
+                  PM Info
+              </div>
+              <div class="card-body">
+                <div class="mb-3">
+                  <input type="text" class="form-control" name="timestamp" placeholder="Timestamp">
+                </div>
+                
+                <div class="mb-3">
+                  <label for="cust-desc" class="form-label">Customer Description</label>
+                  <textarea class="form-control" name="desc" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            <div class="card shadow-sm mb-3">
+              <div class="card-header text-center">
+                  Work Order Info
+              </div>
+              <div class="card-body">
+                <div class="form-row mb-3">
+                  <div class="col-3">
+                    <select name="order" class="form-control">
+                      <option value="WO#" selected>WO#</option>
+                      <option value="PO#">PO#</option>
+                      <option value="MELD#">MELD#</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="workorder">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="limit" value="$250 limit">
+                      <label class="form-check-label" for="limit-250">
+                        $250 limit
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="limit" value="$300 limit">
+                      <label class="form-check-label" for="limit-300">
+                        $300 limit
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="limit" value="$500 limit">
+                      <label class="form-check-label" for="limit-500">
+                        $500 limit
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="limit" value="no limit listed" checked>
+                      <label class="form-check-label" for="no-limit">
+                        No limit listed
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="limit" value="provide repair estimate">
+                      <label class="form-check-label" for="limit-est">
+                        Provide repair estimate
+                      </label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="limit" id="limit-other" value="other">
+                      <label class="form-check-label" for="limit-other">
+                        Other: <input type="number" class="form-control" name="othernum" onclick="otherChecked()">
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                <label class="form-label">PM Contact Info</label>
+                <div class="form-row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="pmname" placeholder="Name">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="pmemail" placeholder="Email">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="pmnum" placeholder="Phone Number">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+
+            
+            <div class="card shadow-sm mb-3">
+              <div class="card-header text-center">
+                  Unit Info
+              </div>
+              <div class="card-body">
+                <div class="form-row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="bldg" placeholder="Building #">
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="unit" placeholder="Unit #">
+                  </div>
+                </div>
+                <label for="vacant">Vacant</label>
+                <div class="form-check form-check">
+                  <input class="form-check-input" type="radio" name="vacant" value="true">
+                  <label class="form-check-label" for="vacant-yes">Yes</label>
+                </div>
+                <div class="form-check form-check mb-3">
+                  <input class="form-check-input" type="radio" name="vacant" value="false" checked>
+                  <label class="form-check-label" for="vacant-no">No</label>
+                </div>
+                
+                <div class="form-row mb-3">
+                    <input type="text" class="form-control" name="entry" placeholder="Lockbox/Entry Info">
+                </div>
+                <div class="mb-3">
+                  <label for="tenant" class="form-label">Tenant Info</label>
+                  <textarea class="form-control" name="tenant" id="tenant" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+            
+
+            
+            <div class="card shadow-sm mb-3">
+              <div class="card-header text-center">
+                  Appliance Info
+              </div>
+              <div class="card-body">
+                <div class="form-row mb-3">
+                  <div class="col">
+                    <input type="text" class="form-control" name="brand" placeholder="Brand">
+                  </div>
+                  <div class="col">
+                    <select name="appliance" class="form-control">
+                      <option value="default">- Appliance -</option>
+                      <option value="AC">AC</option>
+                      <option value="Dishwasher">Dishwasher</option>
+                      <option value="Dryer">Dryer</option>
+                      <option value="Fridge">Fridge</option>
+                      <option value="Furnace">Furnace</option>
+                      <option value="Garbage Disposal">Garbage Disposal</option>
+                      <option value="Microwave">Microwave (PM only) </option>
+                      <option value="Range">Range</option>
+                      <option value="Range Hood">Range Hood (PM only) </option>
+                      <option value="Thermostat">Thermostat</option>
+                      <option value="Washer">Washer</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <input type="text" class="form-control" name="model" placeholder="Model Number">
+                  </div>
+                </div>
+                
+                <div class="form-row mb-2">
+                  <textarea class="form-control" name="problem" rows="3" placeholder="Appliance Problem"></textarea>
+                </div>
+            
+                <input type="checkbox" name="same" value="same">
+                <label for="same-below">**IF SAME AS BELOW??**</label><br>
+                <input type="checkbox" name="razor" value="razor">
+                <label for="pic-razor">*PIC IN RAZOR*</label><br>
+                <input type="checkbox" name="pic" value="pic">
+                <label for="see-pic">See pics</label><br>
+                <div id="add-appliance">
+                  <!-- addAppliance() adds fields here -->
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-secondary" onclick="addAppliance()" type="button">
+                      Add Appliance
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            <div class="card shadow-sm mb-3">
+              <div class="card-header text-center">
+                  Job History
+              </div>
+              <div class="card-body">
+                <div id="job-history">
+                  <!-- addJobHistory() adds fields here -->
+                </div>
+                <div class="text-center">
+                  <button class="btn btn-secondary" onclick="addJobHistory()" type="button">
+                      Add Job History
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            
+            
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-primary" id="create-submit">Submit</button>
+              <button type="button" class="btn btn-light" onclick="resetForm()">Reset</button>
+            </div>
+            
+          </form>
+        </div>
+
+
+
+        <div class="col">
+          <div class="card shadow-sm mb-3">
+            <div class="card-header text-center">
+                Created Template
+            </div>
+            <div class="card-body">
+              <div id="temp-output">
+                <p>
+                  <br><br>
+                  Timestamp<br>
+                  Customer Description<br><br>
+
+                  WO#12345-1 / no limit listed<br>
+                  PM Name&nbsp;&nbsp;&nbsp;Phone Number&nbsp;&nbsp;&nbsp;Email<br><br>
+
+                  UNIT#123<br>
+                  Lockbox/Entry Info<br><br>
+
+                  Tenant Info<br><br>
+
+                  Brand Appliance / MOD# ?<br>
+                  Appliance Problem<br><br>
+
+                  *******************************************************<br>
+                  Job History<br><br>
+                </p>
+              </div>
+              <div id="print-template">
+                
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary" id="copy-button" onclick="copyText()">Copy text</button>
+            <button type="button" class="btn btn-light" onclick="resetForm()">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+     <script src="../js/create.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
+
+
+
+<!--
+
+work history remove
+no after yes hides previously entered, but doesn't delete
+
+-->
