@@ -332,7 +332,7 @@ form.addEventListener('submit', function(event) {
     }
 
 
-    document.getElementById('print-template').innerHTML = `<p style="white-space: pre;"><br><br>${dataObject.timestamp}
+    document.getElementById('print-template').innerHTML = `<p style="white-space: pre-wrap;"><br><br>${dataObject.timestamp}
 ${desc}
 
 ${dataObject.order}${workOrder} / ${limit}
