@@ -182,11 +182,19 @@ form.addEventListener('submit', function(event) {
     }
 
 
+    var timestamp;
+    if (dataObject.timestamp.replace(' ', '') !== '' ) {
+        timestamp = dataObject.timestamp;
+    } else {
+        timestamp = '<strong>Need Timestamp</strong>';
+    }
+
+
     var desc;
     if (dataObject.desc != '') {
         desc = `${dataObject.desc}`;
     } else {
-        desc = '';
+        desc = '<strong>Need Customer Description</strong>';
     }
 
 
@@ -332,7 +340,7 @@ form.addEventListener('submit', function(event) {
     }
 
 
-    document.getElementById('print-template').innerHTML = `<p style="white-space: pre-wrap;"><br><br>${dataObject.timestamp}
+    document.getElementById('print-template').innerHTML = `<p style="white-space: pre-wrap;"><br><br>${timestamp}
 ${desc}
 
 ${dataObject.order}${workOrder} / ${limit}
